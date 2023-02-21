@@ -1,12 +1,20 @@
 #include <stdio.h>
-/**
- * Main - Write a program that prints this line "_putchar"
- *
- * Return (0) - always 
- */
 
-int main (0)
+/**
+ * main - The program print '_putchar' as an output
+ *
+ * Return: Always 0.
+*/
+int main(void)
 {
-	putchar("_putchar\n");
+	putchar('_');
+	putchar('p');
+	putchar('u');
+	putchar('t');
+	putchar('c');
+	putchar('h');
+	putchar('a');
+	putchar('r');
+	putchar('\n');
 	return (0);
 }  

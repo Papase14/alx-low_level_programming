@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "maiin.h"
+#include "main.h"
 
 /**
  * _islower - check the code

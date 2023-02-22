@@ -13,7 +13,7 @@ int main(void)
 	{
 		if ((y % 2 == 0) && (y <= 4000000))
 		{
-			totalSum =+ y;
+			totalSum = totalSum + y;
 		}
 		sum = x + y;
 		x = y;

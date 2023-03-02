@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- * *_strcat - function commute srtings
- * @dest: param pointer to a char
- * @src: param pointer to a char
+ * *_strcat - string function to concatinate the two outputs
+ * @dest: string is copied into
+ * @src: string to copy
  * Return: return value of dest
  */
 

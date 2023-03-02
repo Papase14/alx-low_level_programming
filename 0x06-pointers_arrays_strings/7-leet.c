@@ -2,9 +2,8 @@
 
 /**
  * leet - encodes a string into 1337
- * @str: string to be processed
- * Description:
- * Return: string
+ * @c: String
+ * Return: string that is encoded
  */
 char *leet(char *c)
 {

@@ -1,14 +1,15 @@
 #include "variadic_functions.h"
+
 /**
  * print_all - function that prints anything
  * @format: list of all types of arguments passed to the function
  *
- * Return: Nothing
+ * Return: Nothing.
 */
 void print_all(const char * const format, ...)
 {
 	va_list args;
-	int i = 0, j = 0, c = 0;
+	unsigned int i = 0, j = 0, c = 0;
 	char *str;
 	const char formatTypes[] = "cifs";
 

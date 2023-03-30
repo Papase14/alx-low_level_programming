@@ -1,1 +1,1 @@
-First C Project
+First Library Project

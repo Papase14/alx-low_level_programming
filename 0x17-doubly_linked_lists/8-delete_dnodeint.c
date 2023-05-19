@@ -7,61 +7,40 @@
   *
   * Return: 1 if it succeeded, -1 if it failed.
   */
-int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
-{
-	dlistint_t *temp, *temp2, *tp;
-	unsigned int len = dlistint_len2(*head);
+ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index) 
+ {
+    if (*head == NULL)
+        return -1;  // Failed: Empty list
 
-	if (*head == NULL || len < index)
-		return (-1);
-	temp = *head;
-	if (index == 0 && (*head)->next == NULL)
-	{
-		free(temp), *head = NULL;
-		return (1);
-	}
-	if (index ==  0 && (*head)->next != NULL)
-	{
-		*head = (*head)->next;
-		(*head)->prev = NULL;
-	}
-	if (index > 0)
-	{
-		while (index != 0)
-			temp = temp->next, index--;
-		if (temp->next == NULL)
-		{
-			tp = *head;
-			while (tp->next != NULL)
-				tp = tp->next;
-			temp2 = tp->prev;
-			temp2->next = NULL, free(tp);
-			return (1);
-		}
-		temp2 = temp->prev;
-		temp2->next = temp->next;
-		temp->next->prev = temp2;
-	}
-	free(temp);
-	return (1);
-}
+    dlistint_t *current = *head;
 
-/**
-  * dlistint_len2 - returns number of elements in a lineked dlistint_t list.
-  * @h: pointer to list.
-  * Return: number of elements in list.
-  */
-unsigned int dlistint_len2(dlistint_t *h)
-{
-	dlistint_t *temp;
-	unsigned int count;
-
-	temp = h;
-	count = 0;
-	while (temp != NULL)
-	{
-		temp = temp->next;
-		count++;
-	}
-	return (count);
+    // Special case: If index is 0, delete the head
+    if (index == 0) {
+        *head = (*head)->next;
+        if (*head != NULL) {
+            (*head)->prev = NULL;
+        }
+        free(current);
+        return 1;  // Success
+    }
+    
+    // Traverse to the node at the given index
+    unsigned int i;
+    for (i = 0; i < index; i++) {
+        if (current->next == NULL) {
+            return -1;  // Failed: Index out of range
+        }
+        current = current->next;
+    }
+    
+    // Update the previous and next pointers to remove the node
+    if (current->prev != NULL) {
+        current->prev->next = current->next;
+    }
+    if (current->next != NULL) {
+        current->next->prev = current->prev;
+    }
+    
+    free(current);
+    return 1;  // Success
 }

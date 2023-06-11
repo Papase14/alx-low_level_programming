@@ -166,7 +166,7 @@ void shash_table_print(const shash_table_t *ht)
 		printf("'%s': '%s'", node->key, node->value);
 		node = node->snext;
 
-        if (node != NULL)
+		if (node != NULL)
 			printf(", ");
 	}
 	printf("}\n");
